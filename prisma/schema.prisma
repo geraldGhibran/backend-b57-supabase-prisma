@@ -17,8 +17,10 @@ model Profile {
   username          String
   website           String
   bio               String
+  name              String
   authorEmail       String             @unique
   isPublic          Boolean            @default(false)
+  avatarUrl         String?
   picture           Picture?
   backgroundPicture BackgroundPicture?
   posts             Post[]

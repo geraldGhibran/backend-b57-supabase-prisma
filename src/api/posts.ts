@@ -6,9 +6,11 @@ const router = express.Router();
 
 router.get('/', async (req, res) => {
   const posts = await prisma.post.findMany({
+    orderBy: { createdAt: 'desc' },
     include: {
       profile: {
         select: {
+          avatarUrl: true,
           authorEmail: true,
           picture: { select: { avatarUrl: true } },
         },
@@ -51,6 +53,7 @@ router.get('/post/:id', async (req, res) => {
       include: {
         profile: {
           select: {
+            avatarUrl: true,
             authorEmail: true,
             picture: { select: { avatarUrl: true } },
           },

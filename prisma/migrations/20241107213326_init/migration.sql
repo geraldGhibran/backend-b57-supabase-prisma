@@ -6,8 +6,10 @@ CREATE TABLE "Profile" (
     "username" TEXT NOT NULL,
     "website" TEXT NOT NULL,
     "bio" TEXT NOT NULL,
+    "name" TEXT NOT NULL,
     "authorEmail" TEXT NOT NULL,
     "isPublic" BOOLEAN NOT NULL DEFAULT false,
+    "avatarUrl" TEXT,
 
     CONSTRAINT "Profile_pkey" PRIMARY KEY ("id")
 );

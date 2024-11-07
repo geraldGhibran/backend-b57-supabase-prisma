@@ -4,10 +4,12 @@ const prisma = new PrismaClient()
 
 const userData: Prisma.ProfileCreateInput[] = [
   {
-    username: 'John Doe',
-    authorEmail: 'johndoe@gmail.com',
-    website: 'johndoe.io',
-    bio: 'John&Co',
+    username: 'AbrahamLincoln',
+    name: 'Abraham Lincoln',
+    authorEmail: 'abrahamLincoln@gmail.com',
+    website: 'abrahamLincoln.io',
+    bio: 'abraham lincoln 16th president',
+    avatarUrl: "abra.jpg",
     posts: {
       create: [
         {
@@ -24,10 +26,12 @@ const userData: Prisma.ProfileCreateInput[] = [
     },
   },
   {
-    username: 'Matthew Laing',
-    authorEmail: 'matthewlaing@gmail.com',
-    website: 'matthewlaing.io',
-    bio: 'Matthew&Co',
+    username: 'MinoruTanaka',
+    name: 'Minoru Tanaka',
+    authorEmail: 'MinoruTanaka@gmail.com',
+    website: 'MinoruTanaka.io',
+    bio: 'Death Note Reseller',
+    avatarUrl: "minoru.png",
     posts: {
       create: [
         {
@@ -39,17 +43,35 @@ const userData: Prisma.ProfileCreateInput[] = [
     },
   },
   {
-    username: 'Randy Smith',
-    authorEmail: 'randysmith@gmail.com',
-    website: 'radnysmith.io',
-    bio: 'Randy&Co',
+    username: 'Penguinz0',
+    name: 'Jesus??',
+    authorEmail: 'charlie@gmail.com',
+    website: 'Penguinz0.io',
+    bio: 'Penguinz0 or MoistCritical',
+    avatarUrl: "moist.jpg",
     posts: {
       create: [
         {
           title: 'Ask a question about Prisma on GitHub',
           content: 'https://www.github.com/prisma/prisma/discussions',
           published: true,
-          viewCount: 128,
+        },
+      ],
+    },
+  },
+  {
+    username: 'MadarameBaku',
+    name: 'Madarame Baku',
+    authorEmail: 'MadarameBaku@gmail.com',
+    website: 'MadarameBaku.io',
+    bio: 'MadarameBaku or Usogui',
+    avatarUrl: "baku.jpg",
+    posts: {
+      create: [
+        {
+          title: 'Ask a question about Prisma on GitHub',
+          content: 'https://www.github.com/prisma/prisma/discussions',
+          published: true,
         },
       ],
     },
