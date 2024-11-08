@@ -9,9 +9,11 @@ const auth_1 = require("../middleware/auth");
 const router = express_1.default.Router();
 router.get('/', async (req, res) => {
     const posts = await prisma_1.default.post.findMany({
+        orderBy: { createdAt: 'desc' },
         include: {
             profile: {
                 select: {
+                    avatarUrl: true,
                     authorEmail: true,
                     picture: { select: { avatarUrl: true } },
                 },
@@ -53,11 +55,18 @@ router.get('/post/:id', async (req, res) => {
             include: {
                 profile: {
                     select: {
+                        avatarUrl: true,
                         authorEmail: true,
                         picture: { select: { avatarUrl: true } },
                     },
                 },
                 likes: { select: { id: true } },
+                postPicture: {
+                    select: {
+                        url: true,
+                    },
+                },
+                comments: { select: { content: true } },
             },
         });
         res.json(post);

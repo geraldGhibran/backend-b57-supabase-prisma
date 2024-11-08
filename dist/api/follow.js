@@ -27,7 +27,21 @@ router.post('/create', auth_1.auth, async (req, res) => {
         return res.status(400).json({ error: error });
     }
 });
-router.delete('/deleteById', async (req, res) => {
+router.get('/following-count/:followerId', async (req, res) => {
+    const { followerId } = req.params;
+    try {
+        const followerCount = await prisma_1.default.follower.findMany({
+            where: { followerId: Number(followerId) },
+            include: { following: true, },
+        });
+        res.json(followerCount);
+    }
+    catch (error) {
+        console.error(' Error fetching follower count', error);
+        res.json({ error: `Follower with ID ${followerId} does not exist in the database` });
+    }
+});
+router.post('/deleteById', async (req, res) => {
     const { followerId, followingId } = req.body;
     try {
         const follower = await prisma_1.default.follower.delete({
