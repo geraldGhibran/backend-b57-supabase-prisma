@@ -59,6 +59,12 @@ router.get('/post/:id', async (req, res) => {
           },
         },
         likes: { select: { id: true } },
+        postPicture: {
+          select: {
+            url: true,
+          },
+        },
+        comments: { select: { content: true } },
       },
     });
     res.json(post);
