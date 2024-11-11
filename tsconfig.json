@@ -1,22 +1,24 @@
 {
   "compilerOptions": {
+    "outDir": "dist",
+    "sourceMap": true,
+    "target": "esnext",
     "module": "commonjs",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "target": "ES6",
+    "forceConsistentCasingInFileNames": true,
     "noImplicitAny": true,
-    "moduleResolution": "node",
-    "sourceMap": true,
-    "outDir": "dist",
-    "baseUrl": ".",
+    "strict": true,
+    "skipLibCheck": true,
+    "baseUrl": "./",                                  
     "paths": {
-      "*": [
-        "node_modules/*",
-        "src/types/*"
-      ]
-    }
+      "@services/*": ["src/services/*"],
+      "@utils/*": ["src/utils/*"]
+    },
   },
   "include": [
-    "./src/**/*"
-  ]
+    "./*.js",
+    "src/**/*.ts",
+    "./src/**/*",
+    "test/**/*.ts",
+  ],
 }
