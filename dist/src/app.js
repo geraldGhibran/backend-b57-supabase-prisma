@@ -34,9 +34,9 @@ const api_1 = __importDefault(require("./api"));
 const middlewares = __importStar(require("./middleware/errors"));
 require('dotenv').config();
 const app = (0, express_1.default)();
+app.use((0, cors_1.default)());
 app.use((0, morgan_1.default)('dev'));
 app.use((0, helmet_1.default)());
-app.use((0, cors_1.default)());
 app.use(express_1.default.json());
 app.get('/', (req, res) => {
     res.json({
