@@ -6,7 +6,8 @@
   "scripts": {
     "start": "nodemon src/index.ts",
     "dev": "nodemon src/index.ts",
-    "build": "npx prisma generate && tsc",
+    "postinstall": "npx prisma generate",
+    "build": "npx prisma generate && npx tsc",
     "add-build": "git add dist",
     "lint": "eslint --fix src test",
     "ts.check": "tsc --project tsconfig.json",
