@@ -4,6 +4,7 @@
     "sourceMap": true,
     "target": "es2016",
     "module": "commonjs",
+    "moduleResolution": "node",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": true,
@@ -19,6 +20,6 @@
     "./*.js",
     "src/**/*.ts",
     "./src/**/*",
-    "test/**/*.ts", "index.ts",
+    "test/**/*.ts", "src/index.ts",
   ],
 }
