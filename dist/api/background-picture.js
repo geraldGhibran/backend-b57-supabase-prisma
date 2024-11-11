@@ -1,4 +1,13 @@
 "use strict";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
 var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
@@ -7,10 +16,10 @@ const express_1 = __importDefault(require("express"));
 const prisma_1 = __importDefault(require("../lib/prisma"));
 const auth_1 = require("../middleware/auth");
 const router = express_1.default.Router();
-router.get('/pictureByProfileId/:profileId', async (req, res) => {
+router.get('/pictureByProfileId/:profileId', (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { profileId } = req.params;
     try {
-        const result = await prisma_1.default.backgroundPicture.findFirst({
+        const result = yield prisma_1.default.backgroundPicture.findFirst({
             where: { profileId: Number(profileId) },
         });
         res.json(result);
@@ -18,11 +27,11 @@ router.get('/pictureByProfileId/:profileId', async (req, res) => {
     catch (error) {
         res.json({ error: `Picture with profileId ${profileId} does not exist in the database` });
     }
-});
-router.post('/create', auth_1.auth, async (req, res) => {
+}));
+router.post('/create', auth_1.auth, (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     const { profileId, url } = req.body;
     try {
-        const result = await prisma_1.default.backgroundPicture.create({
+        const result = yield prisma_1.default.backgroundPicture.create({
             data: {
                 url: url,
                 profileId: profileId,
@@ -34,6 +43,6 @@ router.post('/create', auth_1.auth, async (req, res) => {
         console.log(error);
         return res.status(400).json({ error: 'Unauthorized' });
     }
-});
+}));
 exports.default = router;
 //# sourceMappingURL=background-picture.js.map
