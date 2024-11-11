@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon src/index.ts",
     "dev": "nodemon src/index.ts",
-    "build": "prisma generate && rimraf dist && tsc",
+    "build": "npx prisma generate && tsc",
     "add-build": "git add dist",
     "lint": "eslint --fix src test",
     "ts.check": "tsc --project tsconfig.json",
@@ -57,5 +57,9 @@
   },
   "prisma": {
     "seed": "ts-node prisma/seed.ts"
-  }
+  },
+  "pre-commit": [
+    "build",
+    "add-build"
+  ]
 }
