@@ -6,7 +6,7 @@
   "scripts": {
     "start": "nodemon src/index.ts",
     "dev": "nodemon src/index.ts",
-    "builds": "bunx rimraf dist && bunx tsc --outDir dist",
+    "build": "bunx rimraf dist && bunx tsc --outDir dist",
     "add-build": "git add dist",
     "lint": "eslint --fix src test",
     "ts.check": "tsc --project tsconfig.json",
@@ -59,7 +59,7 @@
     "seed": "ts-node prisma/seed.ts"
   },
   "pre-commit": [
-    "build",
+    "builds",
     "add-build"
   ]
 }
