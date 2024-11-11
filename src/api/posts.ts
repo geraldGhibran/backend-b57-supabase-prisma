@@ -73,4 +73,35 @@ router.get('/post/:id', async (req, res) => {
   }
 });
 
+router.get('/post/byProfileId/:id', async (req, res) => {
+  const { id } = req.params;
+  try {
+    const post = await prisma.post.findMany({
+      where: {
+        profileId: Number(id),
+      },
+      include: {
+        profile: {
+          select: {
+            avatarUrl: true,
+            authorEmail: true,
+            picture: { select: { avatarUrl: true } },
+          },
+        },
+        likes: { select: { id: true } },
+        postPicture: {
+          select: {
+            url: true,
+          },
+        },
+        comments: { select: { content: true } },
+      },
+    });
+    res.json(post);
+  } catch (error) {
+    res.json({ error: `Post with ID ${id} does not exist in the database` });
+  }
+});
+
+
 export default router;

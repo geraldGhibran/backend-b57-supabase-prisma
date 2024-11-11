@@ -2,12 +2,12 @@
   "compilerOptions": {
     "outDir": "dist",
     "sourceMap": true,
-    "target": "esnext",
+    "target": "es2016",
     "module": "commonjs",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitAny": true,
-    "strict": true,
+    "strict": false,
     "skipLibCheck": true,
     "baseUrl": "./",                                  
     "paths": {
@@ -19,6 +19,6 @@
     "./*.js",
     "src/**/*.ts",
     "./src/**/*",
-    "test/**/*.ts",
+    "test/**/*.ts", "index.ts",
   ],
 }
