@@ -2,10 +2,10 @@
   "name": "express-api-starter-ts",
   "version": "1.2.0",
   "description": " A basic starter for an express.js API with Typescript",
-  "main": "src/index.ts",
+  "main": "dist/index.js",
   "scripts": {
-    "start": "nodemon src/index.ts",
-    "dev": "nodemon src/index.ts",
+    "start": "nodemon dist/index.js",
+    "dev": "nodemon dist/index.js",
     "build": "tsc",
     "add-build": "git add dist",
     "lint": "eslint --fix src test",
